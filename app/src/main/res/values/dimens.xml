@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contact_info_avatar_height">200dp</dimen>
+    <dimen name="contact_info_name_height">50dp</dimen>
+    <dimen name="contact_new_avatar_size">100dp</dimen>
+    <dimen name="contact_new_avatar_corner_radius">50dp</dimen>
+</resources>

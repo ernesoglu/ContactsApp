@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ContactsApp</string>
+    <string name="welcome_to_contacts_app">Welcome to Contacts App</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last Name</string>
+    <string name="phone_number">Phone number</string>
+    <string name="email">Email</string>
+    <string name="save">Save</string>
+    <string name="field_is_required">Field is required</string>
+    <string name="field_range_error">Field must be in range from 2 to 50</string>
+    <string name="contact_add_error">Contact adding error</string>
+    <string name="write_email">Write email</string>
+    <string name="double_tap_to_exit">Double tap to exit</string>
+    <string name="sort_by_first_name">Sort by First Name</string>
+    <string name="sort_by_date_added">Sort by date added</string>
+    <string name="sort_by_info">Sort by quantity of contact info</string>
+    <string name="contact_add_success">Contact successfully added</string>
+    <string name="contact_deleted">Contact successfully deleted</string>
+    <string name="contact_updated">Contact successfully updated</string>
+    <string name="logout">Logout</string>
+</resources>

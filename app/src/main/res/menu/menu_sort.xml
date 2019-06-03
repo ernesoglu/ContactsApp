@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+        app:showAsAction="always" />
+    <item android:id="@+id/sort_by_first_name"
+        android:title="@string/sort_by_first_name"
+        app:showAsAction="never" />
+    <item android:id="@+id/sort_by_info"
+        android:title="@string/sort_by_info"
+        app:showAsAction="never" />
+    <item android:id="@+id/sort_by_date_added"
+        android:title="@string/sort_by_date_added"
+        app:showAsAction="never" />
+</menu>

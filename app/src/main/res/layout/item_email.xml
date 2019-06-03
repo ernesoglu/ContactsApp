@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_contact_email"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="@string/email"
+        app:boxStrokeColor="@color/colorPrimary"
+        app:hintTextAppearance="@style/TextAppearance.App.TextInputLayout.Hint"
+        tools:text="First name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_contact_email"
+            style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:backgroundTint="@android:color/transparent"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:minHeight="0dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+</LinearLayout>
