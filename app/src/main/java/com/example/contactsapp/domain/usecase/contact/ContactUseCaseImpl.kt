@@ -53,7 +53,6 @@ class ContactUseCaseImpl(application: Application) : ContactUseCase {
         }?.doOnError { }?.subscribeOn(Schedulers.io())
     }
 
-
     override fun getAllContacts(
         sortType: ContactSortType,
         accountId: String

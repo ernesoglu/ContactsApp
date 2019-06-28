@@ -22,7 +22,6 @@ class AuthActivity : AppCompatActivity() {
         setContentView(R.layout.activity_auth)
         initViews()
         setClickListeners()
-
     }
 
     private fun initViews() {
@@ -42,7 +41,6 @@ class AuthActivity : AppCompatActivity() {
         val alreadyLogginInAccount = GoogleSignIn.getLastSignedInAccount(this)
         if (alreadyLogginInAccount != null) {
             startMainActivity()
-
         }
     }
 
@@ -71,6 +69,4 @@ class AuthActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
-
-
 }

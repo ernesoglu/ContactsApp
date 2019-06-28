@@ -6,7 +6,6 @@ import com.example.contactsapp.data.model.ContactPhoneNumber
 @Dao
 interface ContactPhonesDao {
 
-
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(contactPhone: ContactPhoneNumber)
 

@@ -16,7 +16,6 @@ class ContactInfoAdapter(
     private val onContactInfoDataListener: OnContactInfoDataListener
 ) : RecyclerView.Adapter<ContactInfoAdapter.ContactInfoHolder>() {
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -46,7 +45,6 @@ class ContactInfoAdapter(
         holder.bind(items[position], onContactInfoDataListener)
     }
 
-
     class ContactInfoHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private var vgContactInfoData: ViewGroup = itemView.vg_contact_info_data
         private var tvContactInfoData: TextView = itemView.tv_contact_info_data
@@ -72,7 +70,5 @@ class ContactInfoAdapter(
                 if (contactInfoData.type == ContactDataType.PHONE) "Phone" else "Email"
 
         }
-
     }
-
 }

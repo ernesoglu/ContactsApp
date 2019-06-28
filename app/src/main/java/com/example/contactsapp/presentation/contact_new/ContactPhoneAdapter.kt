@@ -17,7 +17,6 @@ class ContactPhoneAdapter(
     private val onContactDataListener: OnContactDataListener
 ) : RecyclerView.Adapter<ContactPhoneAdapter.PhoneNumberViewHolder>() {
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -40,9 +39,7 @@ class ContactPhoneAdapter(
 
     }
 
-
     class PhoneNumberViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var tilPhoneNumber: TextInputLayout = itemView.til_contact_phone_number
         private var etPhoneNumber: TextInputEditText = itemView.et_contact_phone_number
 
         @SuppressLint("SetTextI18n")
@@ -56,11 +53,6 @@ class ContactPhoneAdapter(
                     )
                 }
             }
-        }
-
-        fun showError(error: String) {
-            tilPhoneNumber.isErrorEnabled = true
-            tilPhoneNumber.error = error
         }
     }
 

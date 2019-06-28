@@ -32,5 +32,4 @@ class ContactInfoViewModel(application: Application) : AndroidViewModel(applicat
         disposable.clear()
         super.onCleared()
     }
-
 }

@@ -35,14 +35,15 @@ class FragmentContactList : Fragment(),
     private lateinit var viewModel: ContactListViewModel
     private var currentSortType = ContactSortType.CREATION_TIME
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(false)
         setHasOptionsMenu(true)
-        contactsListAdapter =
-            ContactsListAdapter(contacts, this)
+        contactsListAdapter = ContactsListAdapter(contacts, this)
+        initViewModel()
+    }
 
+    private fun initViewModel() {
         viewModel = ViewModelProviders.of(this, ContactListVMFactory(App.instance))
             .get(ContactListViewModel::class.java)
 
@@ -51,7 +52,6 @@ class FragmentContactList : Fragment(),
             contacts.addAll(it)
             contactsListAdapter.notifyDataSetChanged()
         })
-
     }
 
     override fun onCreateView(
@@ -80,7 +80,12 @@ class FragmentContactList : Fragment(),
 
     private fun setClickListeners() {
         fabAdd.setOnClickListener {
-            (activity as MainActivity).replaceFragment(FragmentAddEditContact.newInstance(null, null))
+            (activity as MainActivity).replaceFragment(
+                FragmentAddEditContact.newInstance(
+                    null,
+                    null
+                )
+            )
         }
     }
 
@@ -130,5 +135,4 @@ class FragmentContactList : Fragment(),
         super.onDestroy()
         viewModel.getAllContactsLiveData().removeObservers(activity as MainActivity)
     }
-
 }

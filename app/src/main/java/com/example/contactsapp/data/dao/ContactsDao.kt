@@ -41,5 +41,4 @@ interface ContactsDao {
 
     @Delete
     fun delete(contactData: ContactDataModel): Completable
-
 }

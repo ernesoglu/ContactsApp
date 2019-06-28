@@ -33,7 +33,6 @@ class AddEditContactViewModel(application: Application) : AndroidViewModel(appli
             createdAt
         )
         addResultLiveData.value = contactUseCase?.addContact(model)
-
     }
 
     fun editContact(

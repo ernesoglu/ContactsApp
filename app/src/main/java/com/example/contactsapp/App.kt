@@ -24,17 +24,11 @@ class App : Application() {
         Hawk.init(this).build()
     }
 
-
     fun getGoogleSignInClient(): GoogleSignInClient {
         return googleSignInClient
     }
 
     companion object {
         lateinit var instance: App
-
-        fun getApp(): App {
-            return instance
-        }
     }
-
 }

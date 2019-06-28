@@ -30,7 +30,6 @@ class FragmentContactInfo(
 
     private val LAYOUT_RES = R.layout.fragment_contact_info
 
-
     private lateinit var ivContactAvatar: ImageView
     private lateinit var tvContactName: TextView
     private lateinit var rvContactInfoData: RecyclerView
@@ -53,11 +52,15 @@ class FragmentContactInfo(
         }
     }
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
         (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        setContactData()
+        initViewModel()
+    }
+
+    private fun setContactData() {
         contact = arguments?.getSerializable(CONTACT) as ContactPresentationModel
 
         contact.phoneNumbers.map {
@@ -67,7 +70,9 @@ class FragmentContactInfo(
             contactInfoDataList.add(ContactInfoData(ContactDataType.EMAIL, it))
         }
         contactInfoAdapter = ContactInfoAdapter(contactInfoDataList, this)
+    }
 
+    private fun initViewModel(){
         viewModel = ViewModelProviders.of(this, ContactInfoVMFactory(App.instance))
             .get(ContactInfoViewModel::class.java)
 
@@ -92,7 +97,6 @@ class FragmentContactInfo(
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
-        setClickListeners()
         fillViews()
 
         rvContactInfoData.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
@@ -103,9 +107,6 @@ class FragmentContactInfo(
         ivContactAvatar = iv_contact_info_avatar
         tvContactName = tv_contact_info_name
         rvContactInfoData = rv_contact_data
-    }
-
-    private fun setClickListeners() {
     }
 
     @SuppressLint("SetTextI18n")

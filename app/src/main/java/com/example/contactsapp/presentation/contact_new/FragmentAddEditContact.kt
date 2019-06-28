@@ -65,6 +65,11 @@ class FragmentAddEditContact : Fragment(), OnContactDataListener {
         setHasOptionsMenu(true)
         (activity as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        setupContactDataIfExists()
+        initViewModel()
+    }
+
+    private fun setupContactDataIfExists() {
         if (arguments?.getSerializable(CONTACT) != null){
             contact = arguments?.getSerializable(CONTACT) as ContactPresentationModel
         }
@@ -88,9 +93,12 @@ class FragmentAddEditContact : Fragment(), OnContactDataListener {
                 }
             }
         }
+
         contactPhoneAdapter = ContactPhoneAdapter(contactPhonesList, this)
         contactEmailAdapter = ContactEmailAdapter(contactEmailsList, this)
+    }
 
+    private fun initViewModel(){
         viewModel = ViewModelProviders.of(this, AddEditContactVMFactory(App.instance))
             .get(AddEditContactViewModel::class.java)
 
@@ -125,23 +133,13 @@ class FragmentAddEditContact : Fragment(), OnContactDataListener {
         return inflater.inflate(LAYOUT_RES, container, false)
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initViews()
-        setClickListeners()
         setTextWatchers()
+        initContactInfoList()
+        fillViews()
 
-        rvContactPhones.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        rvContactPhones.adapter = contactPhoneAdapter
-        rvContactPhones.isNestedScrollingEnabled = false
-
-        rvContactEmails.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-        rvContactEmails.adapter = contactEmailAdapter
-        rvContactEmails.isNestedScrollingEnabled = false
-
-        etFirstName.setText(contact?.firstName)
-        etLastName.setText(contact?.lastName)
     }
 
     private fun initViews() {
@@ -153,9 +151,21 @@ class FragmentAddEditContact : Fragment(), OnContactDataListener {
         rvContactEmails = rv_contact_emails
     }
 
-    private fun setClickListeners() {
+    private fun initContactInfoList() {
+        rvContactPhones.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        rvContactPhones.adapter = contactPhoneAdapter
+        rvContactPhones.isNestedScrollingEnabled = false
 
+        rvContactEmails.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        rvContactEmails.adapter = contactEmailAdapter
+        rvContactEmails.isNestedScrollingEnabled = false
     }
+
+    private fun fillViews() {
+        etFirstName.setText(contact?.firstName)
+        etLastName.setText(contact?.lastName)
+    }
+
 
     private fun setTextWatchers() {
         etFirstName.afterTextChanged {
@@ -163,7 +173,6 @@ class FragmentAddEditContact : Fragment(), OnContactDataListener {
                 validateFirstName()
             }
         }
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

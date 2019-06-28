@@ -39,9 +39,7 @@ class ContactsListAdapter(
         holder.bind(items[position], clickListener)
     }
 
-
     class ContactsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var contactAvatar: ImageView = itemView.iv_contact_avatar
         private var contactName: TextView = itemView.tv_contact_name
 
         @SuppressLint("SetTextI18n")

@@ -17,7 +17,6 @@ class ContactEmailAdapter(
     private val onContactDataListener: OnContactDataListener
 ) : RecyclerView.Adapter<ContactEmailAdapter.EmailViewHolder>() {
 
-
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -40,7 +39,6 @@ class ContactEmailAdapter(
     }
 
     class EmailViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private var tilEmail: TextInputLayout = itemView.til_contact_email
         private var etEmail: TextInputEditText = itemView.et_contact_email
 
         @SuppressLint("SetTextI18n")
